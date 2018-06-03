@@ -6,6 +6,7 @@ import { HomePage } from '../home/home';
 import { CafeDetailPage } from '../cafe-detail/cafe-detail';
 import { Signup2Page } from '../signup2/signup2';
 import { StartWithCodePage } from '../start-with-code/start-with-code';
+import { ManagerLoginPage } from '../manager-login/manager-login';
 
 @Component({
   selector: 'page-select-mode',
@@ -33,6 +34,9 @@ export class SelectModePage {
   }goToStartWithCode(params){
     if (!params) params = {};
     this.navCtrl.push(StartWithCodePage);
+  }goToManagerLogin(params){
+    if (!params) params = {};
+    this.navCtrl.push(ManagerLoginPage);
   }
 
   
