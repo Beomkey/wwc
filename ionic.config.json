@@ -1,6 +1,6 @@
 {
   "name": "wwc",
-  "app_id": "",
+  "app_id": "84268ad7",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
