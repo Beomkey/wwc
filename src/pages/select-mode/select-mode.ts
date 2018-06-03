@@ -34,4 +34,6 @@ export class SelectModePage {
     if (!params) params = {};
     this.navCtrl.push(StartWithCodePage);
   }
+
+  
 }

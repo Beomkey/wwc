@@ -17,6 +17,8 @@ import { CafeDetailPage } from '../pages/cafe-detail/cafe-detail';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -52,6 +54,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    QRScanner,
+    
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

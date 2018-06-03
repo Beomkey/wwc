@@ -14,4 +14,8 @@ export class HomePage {
     if (!params) params = {};
     this.navCtrl.push(CafeDetailPage);
   }
+
+  IonViewDidLoad(){
+    console.log('home.ts loaded');
+  }
 }

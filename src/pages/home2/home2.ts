@@ -9,5 +9,9 @@ export class Home2Page {
 
   constructor(public navCtrl: NavController) {
   }
+ 
   
+  IonViewDidLoad(){
+    console.log('home2.ts loaded');
+  }
 }
