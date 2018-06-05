@@ -18,9 +18,10 @@ export class SignupPage {
   }
   async register(user: User) {
     try {
-      let result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+      console.log(result);
       if(result) {
-        firebase.database().ref(`/customers/${result.uid}/email`).set(user.email);
+        firebase.database().ref(`/customers/${result.user.uid}/email`).set(user.email);
       }
     }
     catch (e) {
