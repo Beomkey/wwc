@@ -24,6 +24,10 @@ import { Cafe1Page } from '../pages/cafe1/cafe1';
 import { Cafe2Page } from '../pages/cafe2/cafe2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FIREBASE_CONFIG } from './app.firebase.config';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -43,7 +47,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

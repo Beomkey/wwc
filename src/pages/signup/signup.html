@@ -1,35 +1,23 @@
-<!--signup for customer-->
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Signup
+      Register
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page6">
-  <form id="signup-form3">
-    <ion-list id="signup-list3">
-      <ion-item id="signup-input5">
-        <ion-label>
-          Name
-        </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
-      </ion-item>
-      <ion-item id="signup-input6">
-        <ion-label>
-          Email
-        </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
-      </ion-item>
-      <ion-item id="signup-input7">
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
-      </ion-item>
-    </ion-list>
-    <button id="signup-button10" ion-button color="stable" block>
-      Sign up
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Email Address</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email" placeholder=""></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" placeholder=""></ion-input>
+  </ion-item>
+
+  <div class="spacer" style="height:40px;" id="login-spacer2"></div>
+    <button ion-button block on-click="register(user)">
+      Register
     </button>
-  </form>
 </ion-content>

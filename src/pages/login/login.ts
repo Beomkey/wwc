@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { CafeDetailPage } from '../cafe-detail/cafe-detail';
-import { Signup2Page } from '../signup2/signup2';
+import { SignupPage } from '../signup/signup';
+import { User } from '../../models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-login',
@@ -10,16 +12,25 @@ import { Signup2Page } from '../signup2/signup2';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {
+  user = {} as User;
+
+  constructor(private afAuth: AngularFireAuth,
+    public navCtrl: NavController, public navParams: NavParams) {
   }
-  goToHome(params){
-    if (!params) params = {};
-    this.navCtrl.push(HomePage);
-  }goToCafeDetail(params){
-    if (!params) params = {};
-    this.navCtrl.push(CafeDetailPage);
-  }goToSignup2(params){
-    if (!params) params = {};
-    this.navCtrl.push(Signup2Page);
+
+  async login(user: User) {
+    try{
+      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+      console.log(result);
+      if (result) {
+        this.navCtrl.push(HomePage);
+      }
+    }
+    catch (e) {
+      console.error(e);
+    }
+  }
+  register() {
+    this.navCtrl.push(SignupPage);
   }
 }
