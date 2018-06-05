@@ -43,8 +43,6 @@ export class QRscanPage {
       this.presentAlert('Invalid QR code!!');
       this.navCtrl.push(HomePage, {}, { animate: false });
     }
-     
-
   }
 
   presentAlert(str) {
