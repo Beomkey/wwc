@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from "angularfire2/auth";
 import { User } from '../../models/user';
 import { LoginPage } from '../login/login';
+import firebase from 'firebase';
+
 
 @Component({
   selector: 'page-signup',
@@ -16,8 +18,10 @@ export class SignupPage {
   }
   async register(user: User) {
     try {
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-      console.log(result);
+      let result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+      if(result) {
+        firebase.database().ref(`/customers/${result.uid}/email`).set(user.email);
+      }
     }
     catch (e) {
       console.error(e)
