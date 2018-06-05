@@ -13,28 +13,28 @@
         <ion-label>
           Cafe Name
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="text" [(ngModel)]="cafe_name" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="signup2-input13">
         <ion-label>
           Address
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="text" [(ngModel)]="cafe_address" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="signup2-input11">
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="signup2-input12">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="text" [(ngModel)]="user.password" placeholder=""></ion-input>
       </ion-item>
     </ion-list>
-    <button id="signup2-button14" ion-button color="stable" block>
+    <button id="signup2-button14" ion-button color="stable" block on-click="registerManager(user, cafe_name, cafe_addresss)">
       Sign up
     </button>
   </form>

@@ -27,6 +27,11 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { AuthProvider } from '../providers/auth/auth';
+import *as firebase from 'firebase'
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+firebase.initializeApp(FIREBASE_CONFIG);
 
 @NgModule({
   declarations: [
@@ -49,7 +54,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -73,7 +79,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     SplashScreen,
     QRScanner,
     BarcodeScanner,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider
   ]
 })
 export class AppModule {}
