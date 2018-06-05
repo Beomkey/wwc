@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CafeDetailPage } from '../cafe-detail/cafe-detail';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRscanPage } from '../q-rscan/q-rscan';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 
 import 'firebase/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { User } from '../../models/user';
 
 
 @Component({
