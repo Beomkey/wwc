@@ -17,15 +17,16 @@ import { CafeDetailPage } from '../pages/cafe-detail/cafe-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { QRscanPage } from '../pages/q-rscan/q-rscan';
 import { Cafe1Page } from '../pages/cafe1/cafe1';
 import { Cafe2Page } from '../pages/cafe2/cafe2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireFunctionsModule } from 'angularfire2/functions';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AuthProvider } from '../providers/auth/auth';
 import *as firebase from 'firebase'
@@ -55,6 +56,9 @@ firebase.initializeApp(FIREBASE_CONFIG);
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
+    AngularFirestoreModule.enablePersistence(),
+    AngularFireStorageModule,
+    AngularFireFunctionsModule,
     AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
@@ -77,7 +81,6 @@ firebase.initializeApp(FIREBASE_CONFIG);
   providers: [
     StatusBar,
     SplashScreen,
-    QRScanner,
     BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider
