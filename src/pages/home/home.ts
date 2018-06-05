@@ -22,9 +22,10 @@ export class HomePage {
     this.navCtrl.push(CafeDetailPage);
   }
 
-  IonViewDidLoad() {
+  ionViewDidLoad() {
     console.log('home.ts loaded');
   }
+
   onScanClick(){
     this.navCtrl.push(QRscanPage, {}, { animate: false });
   }
