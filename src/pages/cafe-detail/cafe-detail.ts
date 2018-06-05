@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-cafe-detail',
@@ -7,7 +9,10 @@ import { NavController } from 'ionic-angular';
 })
 export class CafeDetailPage {
 
-  constructor(public navCtrl: NavController) {
+  cafe: string;
+  constructor(public navCtrl: NavController, public params: NavParams) {
+    this.cafe = params.get('data');
+    
   }
   
 }

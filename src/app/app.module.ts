@@ -17,16 +17,16 @@ import { CafeDetailPage } from '../pages/cafe-detail/cafe-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { QRscanPage } from '../pages/q-rscan/q-rscan';
 import { Cafe1Page } from '../pages/cafe1/cafe1';
 import { Cafe2Page } from '../pages/cafe2/cafe2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -71,8 +71,9 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
   providers: [
     StatusBar,
     SplashScreen,
-    QRScanner,
     BarcodeScanner,
+    AngularFireDatabase,
+    AngularFirestore,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
