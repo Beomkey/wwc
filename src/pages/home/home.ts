@@ -5,13 +5,17 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRscanPage } from '../q-rscan/q-rscan';
 
+import { AngularFireDatabase} from 'angularfire2/database';
+import firebase from 'firebase';
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private barcode: BarcodeScanner) {
+  constructor(public navCtrl: NavController, public af: AngularFireDatabase, private barcode: BarcodeScanner) {
   }
   goToCafeDetail(params) {
     if (!params) params = {};

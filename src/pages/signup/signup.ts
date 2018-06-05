@@ -4,6 +4,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { User } from '../../models/user';
 import { LoginPage } from '../login/login';
 import firebase from 'firebase';
+import 'firebase/firestore';
 
 
 @Component({
@@ -21,7 +22,14 @@ export class SignupPage {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
       console.log(result);
       if(result) {
-        firebase.database().ref(`/customers/${result.user.uid}/email`).set(user.email);
+        let db = firebase.firestore();
+        db.collection("Customer").add({
+          email: user.email
+        }).then((data)=> {
+          console.log(data)
+        }).catch((error)=>{
+          console.log
+        })
       }
     }
     catch (e) {
