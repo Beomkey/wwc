@@ -4,6 +4,8 @@ import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-sca
 import { Cafe1Page } from '../cafe1/cafe1';
 import { Cafe2Page } from '../cafe2/cafe2';
 import { HomePage } from '../home/home';
+import { AlertController } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -14,7 +16,7 @@ export class QRscanPage {
   str: string;
   options: BarcodeScannerOptions;
   results: any;
-  constructor(public navCtrl: NavController, private barcode: BarcodeScanner, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private barcode: BarcodeScanner, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
 
@@ -38,10 +40,19 @@ export class QRscanPage {
       this.navCtrl.push(Cafe2Page, {}, { animate: false });
     }
     else {
-      alert('QR code invalid!');
+      this.presentAlert('Invalid QR code!!');
       this.navCtrl.push(HomePage, {}, { animate: false });
     }
      
 
+  }
+
+  presentAlert(str) {
+    let alert = this.alertCtrl.create({
+      title: 'Alert',
+      subTitle: str,
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 }
