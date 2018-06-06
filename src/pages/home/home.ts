@@ -10,8 +10,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import { User } from '../../models/user';
 
-
-@Component({
+@Component({  
   selector: 'page-home',
   templateUrl: 'home.html'
 })
@@ -36,7 +35,7 @@ export class HomePage {
       console.log('Error getting documents', err);
     });
   }
-  
+
   goCoupDetails(theCoup: any) {
     this.navCtrl.push(CafeDetailPage, { coup: theCoup });
   }

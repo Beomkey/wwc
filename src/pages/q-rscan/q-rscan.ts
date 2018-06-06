@@ -19,7 +19,6 @@ import { Coupon } from '../../models/coupon';
 
 
 
-
 export class QRscanPage {
   cafes: any = [
     'Dads Cafe',
@@ -72,7 +71,7 @@ export class QRscanPage {
     this.results = await this.barcode.scan(this.options);
     console.log(this.results);
     this.str = this.results.text
-
+    this.init(this.str);
 
     if (this.cafes.includes(this.str)) {
       this.navCtrl.push(CafeDetailPage, {
