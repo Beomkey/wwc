@@ -8,7 +8,6 @@ import { AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 
 import 'firebase/firestore';
