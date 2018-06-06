@@ -36,7 +36,7 @@ export class HomePage {
     });
   }
   goCoupDetails(theCoup: any) {
-    this.navCtrl.push("CafeDetailPage", { coup: theCoup });
+    this.navCtrl.push(CafeDetailPage, { coup: theCoup });
   }
 
 

@@ -1,23 +1,24 @@
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      Cafe Detail
-    </ion-title>
+    <ion-title>{{ coupInfo.cafe }}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page13">
-  <h1 id="cafeDetail-heading2" style="color:#000000;">
-    Heading
-  </h1>
-  <div id="cafeDetail-markdown19" class="show-list-numbers-and-dots">
-    <p style="color:#000000;">
-      Some friendly
-      <strong>
-        markdown
-      </strong>
-    </p>
-  </div>
-  <button id="cafeDetail-button15" ion-button color="positive" block>
-    Use Coupon
+
+<ion-content>
+    <h1 padding>{{ coupInfo.cafe }}</h1>
+      <ion-card>
+        <ion-card-header>
+          Coupone Detail
+        </ion-card-header>
+        <ion-card-content>
+          <ion-icon name="cafe"></ion-icon> {{ coupInfo.stemps }}
+        </ion-card-content>
+      </ion-card>
+  
+  <button ion-button color="danger" block (click)="useCoupon()">
+    Use It
   </button>
+    
+    
 </ion-content>
