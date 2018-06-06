@@ -19,6 +19,7 @@ import { FirebaseAuth } from '@firebase/auth-types';
 export class Home2Page {
 
   cafename:string;
+  cafeaddress:string;
   idnow:string;
   
 
@@ -30,6 +31,7 @@ export class Home2Page {
 
       db.collection("CafeManager").doc(this.idnow).get().then(
         result => {this.cafename=result.get('name');
+        this.cafeaddress=result.get('address');
         if (this.cafename==null){
           this.navCtrl.push(ManagerLoginPage);
         }

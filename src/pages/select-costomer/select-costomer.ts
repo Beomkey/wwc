@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { CafeDetailPage } from '../cafe-detail/cafe-detail';
-import { Signup2Page } from '../signup2/signup2';
 import { StartWithCodePage } from '../start-with-code/start-with-code';
 
 @Component({
@@ -17,16 +16,16 @@ export class SelectCostomerPage {
   goToLogin(params){
     if (!params) params = {};
     this.navCtrl.push(LoginPage);
-  }goToHome(params){
+  }
+  goToHome(params){
     if (!params) params = {};
     this.navCtrl.push(HomePage);
-  }goToCafeDetail(params){
+  }
+  goToCafeDetail(params){
     if (!params) params = {};
     this.navCtrl.push(CafeDetailPage);
-  }goToSignup2(params){
-    if (!params) params = {};
-    this.navCtrl.push(Signup2Page);
-  }goToStartWithCode(params){
+  }
+  goToStartWithCode(params){
     if (!params) params = {};
     this.navCtrl.push(StartWithCodePage);
   }

@@ -21,7 +21,6 @@ export class HomePage {
   coupons: Observable<any[]>;
 
   constructor(
-    private afstore: AngularFirestore,
     public navCtrl: NavController, 
     private barcode: BarcodeScanner,
     public auth: AngularFireAuth) {
