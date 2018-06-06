@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
-import { Cafe1Page } from '../cafe1/cafe1';
-import { Cafe2Page } from '../cafe2/cafe2';
 import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
+import { CafeDetailPage } from '../cafe-detail/cafe-detail';
 
 
 @IonicPage()
@@ -12,14 +11,21 @@ import { AlertController } from 'ionic-angular';
   selector: 'page-q-rscan',
   templateUrl: 'q-rscan.html',
 })
+
+
+
 export class QRscanPage {
+  cafes: any = [
+    'Hisbeans',
+    'Ediya',
+    'Moms Cafe', //etc...
+  ];
+  
   str: string;
   options: BarcodeScannerOptions;
   results: any;
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner, public navParams: NavParams, private alertCtrl: AlertController) {
   }
-
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QRscanPage');
@@ -34,10 +40,10 @@ export class QRscanPage {
     console.log(this.results);
     this.str = this.results.text
 
-    if (this.str == 'cafe1')
-      this.navCtrl.push(Cafe1Page, {}, { animate: false });
-    else if (this.str == 'cafe2') {
-      this.navCtrl.push(Cafe2Page, {}, { animate: false });
+    if (this.cafes.includes(this.str)){
+      this.navCtrl.push(CafeDetailPage, {
+        data: this.str
+      });
     }
     else {
       this.presentAlert('Invalid QR code!!');

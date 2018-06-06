@@ -8,21 +8,25 @@
 <ion-content padding id="page9">
   <form id="managerLogin-form4">
     <ion-list id="managerLogin-list5">
+
       <ion-item id="managerLogin-input8">
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="text" [(ngModel)]="m_email" name="m_email" placeholder=""></ion-input>
       </ion-item>
+      
       <ion-item id="managerLogin-input9">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
+        <ion-input type="password" [(ngModel)]="m_password" name="m_password" placeholder=""></ion-input>
       </ion-item>
+
     </ion-list>
+
     <div class="spacer" style="height:40px;" id="managerLogin-spacer3"></div>
-    <button id="managerLogin-button12" ion-button color="stable" block>
+    <button ion-button block on-click="login(m_email, m_password)">
       Log in
     </button>
     <button id="managerLogin-button13" ion-button clear color="positive" block on-click="goToSignup2()">
