@@ -30,7 +30,7 @@ export class Home2Page {
       this.idnow=navParams.get('keyid');
 
       db.collection("CafeManager").doc(this.idnow).get().then(
-        result => {this.cafename=result.get('name');
+        result => {this.cafename=result.get('cafe');
         this.cafeaddress=result.get('address');
         if (this.cafename==null){
           this.navCtrl.push(ManagerLoginPage);
