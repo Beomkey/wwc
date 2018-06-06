@@ -28,6 +28,8 @@ export class Home2Page {
 
       let db = firebase.firestore();
       this.idnow=navParams.get('keyid');
+      console.log(firebase.auth().currentUser.uid);
+      console.log(this.idnow);
 
       db.collection("CafeManager").doc(this.idnow).get().then(
         result => {this.cafename=result.get('cafe');
