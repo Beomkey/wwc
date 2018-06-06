@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CafeDetailPage } from '../cafe-detail/cafe-detail';
-import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRscanPage } from '../q-rscan/q-rscan';
 
 import { AngularFireDatabase} from 'angularfire2/database';
@@ -9,9 +8,6 @@ import firebase from 'firebase';
 import 'firebase/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
-
-import 'firebase/firestore';
-
 import { User } from '../../models/user';
 
 
@@ -22,9 +18,8 @@ import { User } from '../../models/user';
 export class HomePage {
   coups: Array<Object> = [];
 
-  constructor(public navCtrl: NavController, public af: AngularFireDatabase, private barcode: BarcodeScanner) {
-    this.coups = [
-    ]
+  constructor(public navCtrl: NavController, public af: AngularFireDatabase) {
+    this.coups = [];
 
     let db = firebase.firestore();
     let uid = firebase.auth().currentUser.uid;
@@ -41,6 +36,7 @@ export class HomePage {
       console.log('Error getting documents', err);
     });
   }
+  
   goCoupDetails(theCoup: any) {
     this.navCtrl.push(CafeDetailPage, { coup: theCoup });
   }

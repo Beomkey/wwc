@@ -14,15 +14,17 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class CafeDetailPage {
   coupInfo = {} as Coupon;
+  qrcode : string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.coupInfo = navParams.data.coup;
+    this.qrcode = navParams.get('qrcode');
   }
   useCoupon() {
     if (this.coupInfo.stemps<10) {
       const alert = this.alertCtrl.create({
         title: 'Cannot use!',
-        subTitle: 'You can use coupon collected at least 10 stemps',
+        subTitle: 'You can use coupon collected at least 10 stamps',
         buttons: ['OK']
       });
       alert.present();
