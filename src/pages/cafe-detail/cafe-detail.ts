@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Coupon } from '../../models/coupon';
 import { HomePage } from '../home/home';
-
 import { AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import 'firebase/firestore';
