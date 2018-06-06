@@ -32,7 +32,7 @@ export class Signup2Page {
             
         let db = firebase.firestore();
         db.collection("CafeManager").doc(firebase.auth().currentUser.uid).set({
-          name : cafe_name,
+          cafe : cafe_name,
           email : manager_email,
           address : cafe_address
         }).then((data) =>{
