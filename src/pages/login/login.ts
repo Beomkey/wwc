@@ -23,7 +23,7 @@ export class LoginPage {
   login():void {
       this.authProvider.login(this.user.email, this.user.password).then(authData => {
         this.loading.dismiss().then( ()=> {
-          this.navCtrl.push(HomePage);
+          this.navCtrl.setRoot(HomePage);
         });
       }, error => {
         this.loading.dismiss().then( () => {

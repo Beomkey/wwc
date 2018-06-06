@@ -5,19 +5,28 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page7">
+
+<ion-content>
   <button id="home-button11" ion-button color="positive" block (click)="onScanClick()">
     <ion-icon name="qr-scanner"></ion-icon>
   </button>
-  <ion-card id="home-card29">
-    <ion-list>
-      <ion-item color="none" on-click="goToCafeDetail()" id="home-list-item33">
-        <ion-icon name="cafe" item-left></ion-icon>
-        Cafe 1
-      </ion-item>
-      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-      </div>
-    </ion-list>
-  </ion-card>
+
+  <ion-list>
+    <ion-card ion-item *ngFor="let coup of coups" (click)="goCoupDetails(coup)">
+      <ion-card-header>
+        {{ coup.cafe }}
+      </ion-card-header>
+      <ion-card-content>
+      <ion-icon name="cafe"></ion-icon> {{ coup.stemps }}
+      </ion-card-content>
+    </ion-card>  
+  </ion-list>
 </ion-content>
+
+<!--  <ion-list>
+    <button ion-item *ngFor="let coup of coups" (click)="goCoupDetail(coup)">
+      {{ coup.cafe }} <br>
+      {{ coup.stemps }}
+    </button>  
+  </ion-list>
+-->
