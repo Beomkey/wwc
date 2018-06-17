@@ -26,8 +26,7 @@ export class QRscanPage {
     'Yourbeans', //etc...
   ];
 
-  coups: any;
-
+  coups = {} as Coupon;
   str: string;
   options: BarcodeScannerOptions;
   results: any;
@@ -40,16 +39,18 @@ export class QRscanPage {
   }
 
   init(cafe: string) {
-    this.coups = [];
     var db = firebase.firestore();
     var uid = firebase.auth().currentUser.uid;
     var coupsRef = db.collection(`Customer/${uid}/coupons`);
     var coups = coupsRef.get()
       .then(snapshot => {
         snapshot.forEach(doc => {
-          this.coups.push({ cafe: doc.data().cafe, stemps: doc.data().stemps });
+          // this.coups.push({ cafe: doc.data().cafe, stemps: doc.data().stemps });
           if(doc.data().cafe == cafe){
             this.coups = {cafe: doc.data().cafe, stemps: doc.data().stemps};
+            this.navCtrl.push(CafeDetailPage, {
+              coup: this.coups
+            })
           }
           console.log(doc.id, '=>', doc.data());
         });
@@ -72,10 +73,9 @@ export class QRscanPage {
     console.log(this.results);
     this.str = this.results.text
     this.init(this.str);
-
     if (this.cafes.includes(this.str)) {
       this.navCtrl.push(CafeDetailPage, {
-        qrcode: this.str
+        coup: this.coups
       });
     }
     else {

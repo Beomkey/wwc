@@ -18,7 +18,6 @@ export class CafeDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.coupInfo = navParams.data.coup;
-    this.qrcode = navParams.get('qrcode');
   }
   useCoupon() {
     if (this.coupInfo.stemps<10) {
